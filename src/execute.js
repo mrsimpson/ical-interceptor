@@ -1,30 +1,28 @@
-import {
-    async as ical
-} from 'node-ical'
-import readIcsFromUrl from './readIcsFromUrl'
-import retrieveEvents from './retrieveEvents'
-import manipulateEvents from './manipulateEvents'
+const ical = require('ical.js')
+const readJcalFromUrl = require('./readJcalFromUrl')
+const retrieveEvents = require('./retrieveEvents')
+const manipulateEvents = require('./manipulateEvents')
 
-const stripEvents = function(ics){
-    const stripped = {}
-    for (const prop in ics) {
-        if (ics.hasOwnProperty(prop) && ics[prop].type !== 'VEVENT') {
-            stripped[prop] = ics[prop]
-        }
-    }
+const stripEvents = function(jcal){
+    const stripped = new ical.Component(JSON.parse(JSON.stringify(jcal)))
+    stripped.removeAllSubcomponents('vevent')
     return stripped
 }
 
-const mergeEventsIntoIcs = function(events, ics){
-    const merged = Object.assign({}, ics)
-    events.forEach((event)=> merged[event.uid] = event)
+const mergeEventsIntoIcs = function(events, jcal){
+    const merged = new ical.Component(JSON.parse(JSON.stringify(jcal)))
+    events.forEach((event)=> merged.addSubcomponent(event))
     return merged
 }
 
-export default async function execute(url, operations){
-    const sourceIcs = await readIcsFromUrl(url)
+async function execute(url, operations){
+    const sourceJcal = await readJcalFromUrl(url)
 
-    const manipulatedEvents = manipulateEvents(retrieveEvents(sourceIcs), operations)
+    const manipulatedEvents = manipulateEvents(retrieveEvents(sourceJcal), operations)
 
-    return mergeEventsIntoIcs(manipulatedEvents, stripEvents(sourceIcs))
+    const mergedJcal = mergeEventsIntoIcs(manipulatedEvents, stripEvents(sourceJcal))
+
+    return mergedJcal.toString()
 }
+
+module.exports = execute

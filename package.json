@@ -6,7 +6,6 @@
   "scripts": {
     "test": "mocha ./**/*.test.*"
   },
-  "type": "module",
   "engines": {
     "node": ">=12"
   },
@@ -15,19 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "esm": "^3.2.25",
-    "node-ical": "^0.10.0",
+    "ical.js": "^1.3.0",
+    "node-fetch": "^2.6.0",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/register": "^7.8.3",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "mocha": "^7.0.1",
     "nock": "^11.7.2",
     "should": "^13.2.3"

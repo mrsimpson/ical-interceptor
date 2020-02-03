@@ -1,23 +1,24 @@
-import should from 'should'
-import nock from 'nock'
-import {
+const should = require('should')
+const nock = require('nock')
+const {
     getValidIcs
-} from './data/ics'
-import execute from '../src/execute'
-import retrieveEvents from '../src/retrieveEvents'
+} = require('./data/ics')
+const execute = require('../src/execute')
+const retrieveEvents = require('../src/retrieveEvents')
 
 const BASE_URL = 'http://source.ics'
 
 describe('End-to-End', () => {
+    const sourceIcs = getValidIcs()
     it('should return the same ICS if no manipulations were requested', async () => {
         nock(BASE_URL)
             .get('/validIcs')
             .once()
-            .reply(200, getValidIcs())
+            .reply(200, sourceIcs)
 
-        const ics = await execute(`${BASE_URL}/validIcs`)
+        const newIcs = await execute(`${BASE_URL}/validIcs`)
 
-        ics.should.not.be.empty()
+        newIcs.should.equal(sourceIcs.toString())
     })
 
     it('should add a reminder 15mins before start', async () => {
@@ -30,19 +31,6 @@ describe('End-to-End', () => {
             remindBeforeStart: 15
         })
 
-        const events = retrieveEvents(ics)
-        events.forEach((event) => {
-            let alarmFound = false
-            let alarmTime = ''
-            for (const prop in event) {
-                if (event[prop] && event[prop].type === 'VALARM') {
-                    const alarm = event[prop]
-                    alarmFound = true
-                    alarmTime = alarm.trigger && alarm.trigger.val
-                }
-            }
-            alarmFound.should.be.true
-            alarmTime.should.equal('-PT15M')
-        })
+        ics.should.match(/(BEGIN:VEVENT.*BEGIN:VALARM.*TRIGGER;RELATED=START:-PT15M.*END:VALARM.*END:VEVENT.*){2}/s)
     })
 })

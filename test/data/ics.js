@@ -1,6 +1,10 @@
-import fs from 'fs'
-import path from 'path'
+const fs = require('fs')
+const path = require('path')
 
-export function getValidIcs(){
+function getValidIcs(){
     return fs.readFileSync(path.resolve(__dirname, 'reachCalendar.ics'))
+}
+
+module.exports = {
+    getValidIcs
 }

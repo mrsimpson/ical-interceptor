@@ -1,9 +1,9 @@
-import should from 'should'
-import nock from 'nock'
-import readIcsFromUrl from '../src/readIcsFromUrl'
-import {
+const should = require('should')
+const nock = require('nock')
+const readIcsFromUrl = require('../src/readJcalFromUrl')
+const {
     getValidIcs
-} from './data/ics'
+} = require('./data/ics')
 
 const BASE_URL = 'http://source.ics'
 

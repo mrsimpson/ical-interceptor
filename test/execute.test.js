@@ -6,9 +6,9 @@ const {
 const execute = require('../src/execute')
 const retrieveEvents = require('../src/retrieveEvents')
 
-const BASE_URL = 'http://source.ics'
+const BASE_URL = require('./data/constants').BASE_URL
 
-describe('End-to-End', () => {
+describe('execute', () => {
     const sourceIcs = getValidIcs()
     it('should return the same ICS if no manipulations were requested', async () => {
         nock(BASE_URL)

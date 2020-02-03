@@ -1,6 +1,6 @@
 # iCal Interceptor
 
-This contains an [OpenFaas]() function 
+This contains an [OpenFaas](https://www.openfaas.com/) function 
 
 ## How to use it
 

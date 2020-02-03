@@ -1,3 +1,7 @@
 node_modules
 .screenshots
 .env
+
+# OpenFaas build directories
+build
+template

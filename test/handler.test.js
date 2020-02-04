@@ -1,7 +1,8 @@
 require('should')
 const nock = require('nock')
 const {
-    getValidCalendar
+    getValidCalendar,
+    getFreeOrTentativeCalendar
 } = require('./data/ics')
 const handler = require('../handler')
 const {
@@ -49,5 +50,12 @@ describe('handler', () => {
         const result = await handler(event, CONTEXT)
         result.code.should.equal(200)
         result.body.should.equal(sourceIcs.toString())
+    })
+
+    it('should apply filters', async () => {
+        event.query['filter.X-MICROSOFT-CDO-BUSYSTATUS'] = 'FREE,TENTATIVE'
+        const result = await handler(event, CONTEXT)
+        result.code.should.equal(200)
+        result.body.should.equal(getFreeOrTentativeCalendar().toString())
     })
 })

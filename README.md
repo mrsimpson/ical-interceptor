@@ -13,7 +13,8 @@ Supply a `?url=<your ical calendar URL>` as url query parameter and add some mod
 | Modifier | Effect | Status |
 | -------- | ------ |:------:|  
 | `remindBeforeStart=<minutes>` | adds a reminder ro each event | ✅ |
-| `status=<confirmed,tentative,free>` | returns only the events which match a status, comma separate multiple values | [#1](https://github.com/mrsimpson/ical-interceptor/issues/1) |
+| `filter.<iCal component name>=<value>` | returns only the events which math a certain value. RegExp implicitly applied |
+| `filter.summary=^call` | will return only events with a summay which starts with `Call` (case insensitive) |
 
 ## Test it?
 

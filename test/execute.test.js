@@ -41,6 +41,17 @@ describe('execute', () => {
 
         ics.should.equal(getBusyCalendar().toString())
     })
+
+    it('should filter all events if nothing matches', async () => {
+        const ics = await execute(`${BASE_URL}/validIcs`, {
+            'filter': {
+                'X-MICROSOFT-CDO-BUSYSTATUS': 'not really but somehow'
+            }
+        })
+
+        ics.should.equal(getEmptyCalendar().toString())
+    })
+
     it('should combine multiple filters on the same attribute with OR', async () => {
         const ics = await execute(`${BASE_URL}/validIcs`, {
             'filter': {

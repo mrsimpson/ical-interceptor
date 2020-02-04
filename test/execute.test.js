@@ -49,7 +49,7 @@ describe('execute', () => {
             }
         })
 
-        ics.should.equal(getBusyCalendar().toString())
+        ics.should.equal(getEmptyCalendar().toString())
     })
 
     it('should combine multiple filters on the same attribute with OR', async () => {

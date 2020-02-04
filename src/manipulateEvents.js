@@ -12,24 +12,6 @@ function manipulateEvents(events, operations) {
                     alarm.addPropertyWithValue('description', operations.reminderDescription)
                 }
                 trigger.setParameter('related', 'START')
-                // trigger.
-                // const alarm = {
-                //     "type": "VALARM",
-                //     "params": [],
-                //     "action": "DISPLAY",
-                //     "trigger": {
-                //         "params": {
-                //             "RELATED": "START"
-                //         },
-                //         "val": `-PT${operations.remindBeforeStart}M`
-                //     }
-                // }
-                // alarm.setValue(`ACTION:DISPLAY\nTRIGGER;RELATED=START:-PT${operations.remindBeforeStart}M\nDESCRIPTION:Reminder`)
-                // alarm.setValue({
-                //     ACTION:"DISPLAY", 
-                //     TRIGGER: {
-                //         RELATED=START:-PT${operations.remindBeforeStart}M\nDESCRIPTION:Reminder`)
-                // event.addProperty(alarm)
                 event.addSubcomponent(alarm)
             }
         }

@@ -1,4 +1,4 @@
-const should = require('should')
+require('should')
 const nock = require('nock')
 const readIcsFromUrl = require('../src/readJcalFromUrl')
 const {
@@ -7,7 +7,7 @@ const {
 
 const BASE_URL = 'http://source.ics'
 
-describe('Read ICS from URL events', () => {
+describe('readIcsFromUrl', () => {
     it('should parse a valid ics properly', async () => {
         nock(BASE_URL)
             .get('/validIcs')

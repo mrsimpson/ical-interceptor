@@ -24,5 +24,4 @@ module.exports = async (event, context) => {
             .status(500)
             .fail(e);
     }
-
 }

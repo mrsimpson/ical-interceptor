@@ -1,5 +1,5 @@
 {
-    "mochaExplorer.files": "**/*.test.js",
+    "mochaExplorer.files": "{test,src}/**/*.test.js",
     "mochaExplorer.debuggerConfig": "Debug Mocha Tests",
     "mochaExplorer.env": {
         "NODE_ENV": "test",

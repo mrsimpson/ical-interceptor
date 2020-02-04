@@ -1,8 +1,9 @@
 require('should')
 const nock = require('nock')
 const {
-    getValidIcs,
+    getValidCalendar,
     getBusyCalendar,
+    getEmptyCalendar,
     getFreeCalendar,
     getFreeOrTentativeCalendar
 } = require('./data/ics')
@@ -11,7 +12,7 @@ const execute = require('../src/execute')
 const BASE_URL = require('./data/constants').BASE_URL
 
 describe('execute', () => {
-    const sourceIcs = getValidIcs()
+    const sourceIcs = getValidCalendar()
     beforeEach(() => {
         nock(BASE_URL)
             .get('/validIcs')
@@ -67,7 +68,15 @@ describe('execute', () => {
                 'DTSTART': '.*T\\d{2}45\\d{2}$',
             }
         })
-
         ics.should.equal(getBusyCalendar().toString())
+    })
+
+    it('should filter everything if a non-matching filter is set', async () => {
+        const ics = await execute(`${BASE_URL}/validIcs`, {
+            'filter': {
+                'SOMETHING': 'NOT EXISTING',
+            }
+        })
+        ics.should.equal(getEmptyCalendar().toString())
     })
 })

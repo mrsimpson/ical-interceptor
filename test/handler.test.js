@@ -1,7 +1,7 @@
 require('should')
 const nock = require('nock')
 const {
-    getValidIcs
+    getValidCalendar
 } = require('./data/ics')
 const handler = require('../handler')
 const {
@@ -35,7 +35,7 @@ const SIMPLE_GET_EVENT = {
 
 describe('handler', () => {
     let event
-    const sourceIcs = getValidIcs()
+    const sourceIcs = getValidCalendar()
     beforeEach(() => {
         nock(BASE_URL)
             .get('/validIcs')

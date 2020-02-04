@@ -1,8 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-function getValidIcs(){
+function getValidCalendar(){
     return fs.readFileSync(path.resolve(__dirname, 'reachCalendar.ics'))
+}
+
+function getEmptyCalendar(){
+    return fs.readFileSync(path.resolve(__dirname, 'emptyCalendar.ics'))
 }
 
 function getBusyCalendar(){
@@ -18,8 +22,9 @@ function getFreeOrTentativeCalendar(){
 }
 
 module.exports = {
-    getValidIcs,
+    getValidCalendar,
     getBusyCalendar,
+    getEmptyCalendar,
     getFreeCalendar,
     getFreeOrTentativeCalendar
 }

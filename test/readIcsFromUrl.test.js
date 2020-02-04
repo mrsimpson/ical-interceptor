@@ -2,7 +2,7 @@ require('should')
 const nock = require('nock')
 const readIcsFromUrl = require('../src/readJcalFromUrl')
 const {
-    getValidIcs
+    getValidCalendar
 } = require('./data/ics')
 
 const BASE_URL = 'http://source.ics'
@@ -12,7 +12,7 @@ describe('readIcsFromUrl', () => {
         nock(BASE_URL)
             .get('/validIcs')
             .once()
-            .reply(200, getValidIcs())
+            .reply(200, getValidCalendar())
         const ics = await readIcsFromUrl(`${BASE_URL}/validIcs`)
 
         ics.should.not.be.empty()

@@ -16,8 +16,8 @@ function filterEvents(events, filter = {}) {
                         stringified = property.toICALString()
                     }
                 }
-                stringified = stringified.replace(`${f}:`, '')
                 if (stringified) {
+                    stringified = stringified.replace(`${f}:`, '')
                     const orConditions = Array.isArray(filter[f]) ?
                         filter[f] :
                         new Array(filter[f])
@@ -25,6 +25,8 @@ function filterEvents(events, filter = {}) {
                         return total || !!stringified.match(new RegExp(orCondition, 'i'))
                     }, false)
                     eventAccepted = eventAccepted && matched
+                } else {
+                    eventAccepted = false // the property does not exist on the event => filter it
                 }
             }
         }

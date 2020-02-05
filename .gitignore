@@ -6,3 +6,7 @@ coverage
 # OpenFaas build directories
 build
 template
+
+# stryker temp files
+.stryker-tmp
+reports/mutation/html

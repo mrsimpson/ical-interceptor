@@ -1,5 +1,5 @@
 "use strict"
-
+require('dotenv')
 const execute = require('./src/execute')
 const parseQueryParameters = require('./src/parseQueryParameters')
 

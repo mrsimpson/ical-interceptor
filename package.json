@@ -5,6 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "coverage": "istanbul cover mocha --report lcovonly -- -R spec",
+    "mutations": "stryker run",
     "test": "mocha ./**/*.test.*"
   },
   "engines": {
@@ -14,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "ical.js": "^1.3.0",
     "node-fetch": "^2.6.0",

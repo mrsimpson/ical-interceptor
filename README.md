@@ -1,4 +1,5 @@
-[![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)](https://www.openfaas.com)
+[![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)](https://www.openfaas.com) 
+![CI](https://github.com/mrsimpson/ical-interceptor/workflows/CI/badge.svg)
 
 # iCal Interceptor
 

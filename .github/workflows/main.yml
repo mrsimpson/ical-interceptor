@@ -12,9 +12,9 @@ jobs:
       run: npm i
     - name: test
       run: npm test
-    - name: coverage
+    - name: test coverage
       run: npm run coverage
-    - name: Codecov
+    - name: upload to codecov.io
       uses: codecov/codecov-action@v1.0.5
       with:
         # Repository upload token - get it from codecov.io

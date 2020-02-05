@@ -18,5 +18,6 @@ jobs:
     needs: [prepare]
 
     steps:
+    - uses: actions/checkout@v2
     - name: test
       run: npm test

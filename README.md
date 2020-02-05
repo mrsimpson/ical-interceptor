@@ -1,5 +1,7 @@
 [![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)](https://www.openfaas.com) 
 ![CI](https://github.com/mrsimpson/ical-interceptor/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/mrsimpson/ical-interceptor/branch/master/graph/badge.svg)](https://codecov.io/gh/mrsimpson/ical-interceptor)
+[![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)](https://www.openfaas.com)
 
 # iCal Interceptor
 

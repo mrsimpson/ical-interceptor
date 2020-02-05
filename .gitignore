@@ -1,6 +1,7 @@
 node_modules
 .screenshots
 .env
+coverage
 
 # OpenFaas build directories
 build

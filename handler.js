@@ -20,6 +20,10 @@ module.exports = async (event, context) => {
         operations.remindBeforeStart = query.remindBeforeStart
     }
 
+    if (query.reminderDescription) {
+        operations.reminderDescription = query.reminderDescription
+    }
+
     operations.filter = query.filter
 
     try {

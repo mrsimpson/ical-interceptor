@@ -1,3 +1,4 @@
+[![codecov](https://codecov.io/gh/mrsimpson/ical-interceptor/branch/master/graph/badge.svg)](https://codecov.io/gh/mrsimpson/ical-interceptor)
 [![OpenFaaS](https://img.shields.io/badge/openfaas-cloud-blue.svg)](https://www.openfaas.com)
 
 # iCal Interceptor

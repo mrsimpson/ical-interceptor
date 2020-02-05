@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "coverage": "istanbul cover mocha --report lcovonly -- -R spec",
-    "mutations": "stryker run",
+    "mutations": "stryker run --dashboard.reportType=full",
     "test": "mocha ./**/*.test.*"
   },
   "engines": {

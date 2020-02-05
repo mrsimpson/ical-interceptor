@@ -28,7 +28,15 @@ describe('execute', () => {
         const ics = await execute(`${BASE_URL}/validIcs`, {
             remindBeforeStart: 15
         })
-        ics.should.match(/(BEGIN:VEVENT.*BEGIN:VALARM.*TRIGGER;RELATED=START:-PT15M.*END:VALARM.*END:VEVENT.*){3}/s)
+        ics.should.match(/(BEGIN:VEVENT.*BEGIN:VALARM.*ACTION:DISPLAY.*TRIGGER;RELATED=START:-PT15M.*END:VALARM.*END:VEVENT.*){3}/s)
+    })
+
+    it('should add a reminder with a custom description', async () => {
+        const ics = await execute(`${BASE_URL}/validIcs`, {
+            remindBeforeStart: 15,
+            reminderDescription: 'remindme',
+        })
+        ics.should.match(/(BEGIN:VEVENT.*BEGIN:VALARM.*DESCRIPTION:remindme.*END:VALARM.*END:VEVENT.*){3}/s)
     })
 
 

@@ -1,6 +1,8 @@
 name: CI
 
 on: [push]
+env:
+  STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_TOKEN }}
 
 jobs:
   test:
@@ -25,6 +27,9 @@ jobs:
         flags: unit
         # Specify whether or not CI build should fail if Codecov runs into an error during upload
         fail_ci_if_error: false
+    - name: test mutations
+      run: npm run mutations
+      
   build:
     runs-on: [ubuntu-latest]
   

@@ -12,6 +12,17 @@ jobs:
       run: npm i
     - name: test
       run: npm test
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.5
+      with:
+        # Repository upload token - get it from codecov.io
+        token: env.CODECOV_TOKEN
+        # Path to coverage file to upload
+        # file: "" # optional
+        # Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)
+        flags: unit
+        # Specify whether or not CI build should fail if Codecov runs into an error during upload
+        fail_ci_if_error: false
   build:
     runs-on: [ubuntu-latest]
   

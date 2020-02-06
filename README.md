@@ -9,7 +9,9 @@ This contains an [OpenFaas](https://www.openfaas.com/) function to fetch and man
 
 ## How to use it
 
-Supply a `?url=<your ical calendar URL>` as url query parameter and add some modifiers.
+Supply a `?url=<your ical calendar URL>` as url query parameter to the enpoint you exposed the function to and add some modifiers.
+
+Thanks to the more than generous option to run the function on the [OpenFaas Community cluster](https://github.com/openfaas/community-cluster/tree/master/docs), the function is available at `https://mrsimpson.o6s.io/ical-interceptor`.
 
 ### Supported modifiers
 
@@ -29,6 +31,16 @@ However, we use Office 365 at work. And Outlook of the O365 allows me to publish
 This is my config: Add a reminder and filter out those events which start at one minute after the hour (I've got a convention I don't need them to be reminded of). :tada:
 https://mrsimpson.o6s.io/ical-interceptor?url=https://outlook.office365.com/owa/calendar/.../reachcalendar.ics&remindBeforeStart=30&filter.DTSTART=T\d{2}(?!0100)
 
-## Test it?
+## Run it locally
 
-Thanks to the more than generous option to run the function on the [OpenFaas Community cluster](https://github.com/openfaas/community-cluster/tree/master/docs), the function is available at `https://mrsimpson.o6s.io/ical-interceptor`.
+Get a local installation of OpenFaaS. If you've got a docker host running on your machine, it is super simple thanks to k3d and k3sup - check the [OpenFaaS workshop](for very detailed instructions) on how to get things running. No worries, you'll need not more than ten minutes (depending on your internet connection 😉)
+
+Afterwards, there's a one-liner to deploy locally:
+
+```sh
+faas-cli up -f dev.yml --image=<your docker user>/ical-interceptor
+```
+
+This will build the function as docker image, push it to your docker hub repository and deploy the function to your local cluster 
+
+_Caution: make sure to eventually adapt the gateway (I'm exposing it at `30001`) in `dev.yml` or supply the port via `--gateway`)_

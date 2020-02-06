@@ -1,7 +1,7 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://127.0.0.1:31112
+  gateway: http://127.0.0.1:30001
 functions:
   ical-interceptor:
     lang: node12

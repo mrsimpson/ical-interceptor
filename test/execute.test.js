@@ -39,6 +39,12 @@ describe('execute', () => {
         ics.should.match(/(BEGIN:VEVENT.*BEGIN:VALARM.*DESCRIPTION:remindme.*END:VALARM.*END:VEVENT.*){3}/s)
     })
 
+    it('should add multiple reminders', async () => {
+        const ics = await execute(`${BASE_URL}/validIcs`, {
+            remindBeforeStart: [15, 30],
+        })
+        ics.should.match(/(BEGIN:VEVENT.*(BEGIN:VALARM.*END:VALARM.*){2}.*END:VEVENT.*){3}/s)
+    })
 
     it('should filter events case insensitively', async () => {
         const ics = await execute(`${BASE_URL}/validIcs`, {

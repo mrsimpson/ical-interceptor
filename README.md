@@ -2,6 +2,7 @@
 ![CI](https://github.com/mrsimpson/ical-interceptor/workflows/CI/badge.svg?style=flat)
 [![codecov](https://codecov.io/gh/mrsimpson/ical-interceptor/branch/master/graph/badge.svg?style=flat)](https://codecov.io/gh/mrsimpson/ical-interceptor)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmrsimpson%2Fical-interceptor%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/mrsimpson/ical-interceptor/master)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
 
 # iCal Interceptor
 

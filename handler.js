@@ -30,7 +30,7 @@ module.exports = async (event, context) => {
         const result = await execute(query.url, operations)
 
         const headers = {
-            'Access-Control-Allow-Origin': '*'
+            'Access-Control-Allow-Origin': 'ical.no-panic.org'
         }
 
         return context

@@ -47,6 +47,6 @@ describe('handler', () => {
 
     it('should add a CORS header', async () => {
         const result = await handler(event, createMockContext())
-        result.headers['Access-Control-Allow-Origin'].should.equal('ical.no-panic.org')
+        result.headers['Access-Control-Allow-Origin'].should.equal('https://ical.no-panic.org')
     })
 })

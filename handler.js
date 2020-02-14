@@ -28,7 +28,13 @@ module.exports = async (event, context) => {
 
     try {
         const result = await execute(query.url, operations)
+        
+        const headers = {
+            'Access-Control-Allow-Origin': '*'
+        }
+        
         return context
+            .headers(headers)
             .status(200)
             .succeed(result);
     } catch (e) {

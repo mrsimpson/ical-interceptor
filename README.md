@@ -19,8 +19,8 @@ Thanks to the more than generous option to run the function on the [OpenFaas Com
 | Modifier | Effect | Status |
 | -------- | ------ |:------:|  
 | `remindBeforeStart=<minutes>` | adds a reminder ro each event | ✅ |
-| `filter.<iCal component name>=<value>` | returns only the events which math a certain value. RegExp implicitly applied |
-| `filter.summary=^call` | will return only events with a summay which starts with `Call` (case insensitive) |
+| `filter.<iCal component name>=<value>` | returns only the events which math a certain value. RegExp implicitly applied | ✅ |
+| `filter.summary=^call` | will return only events with a summay which starts with `Call` (case insensitive) | ✅ |
 
 ### My personal usecase
 
@@ -34,7 +34,7 @@ https://mrsimpson.o6s.io/ical-interceptor?url=https://outlook.office365.com/owa/
 
 ## Run it locally
 
-Get a local installation of OpenFaaS. If you've got a docker host running on your machine, it is super simple thanks to k3d and k3sup - check the [OpenFaaS workshop](for very detailed instructions) on how to get things running. No worries, you'll need not more than ten minutes (depending on your internet connection 😉)
+Get a local installation of OpenFaaS. If you've got a docker host running on your machine, it is super simple thanks to k3d and k3sup - check the [OpenFaaS workshop for very detailed instructions](https://github.com/openfaas/workshop) on how to get things running. No worries, you'll need not more than ten minutes (depending on your internet connection 😉)
 
 Afterwards, there's a one-liner to deploy locally:
 

@@ -1,6 +1,10 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+
 env:
   STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_TOKEN }}
 

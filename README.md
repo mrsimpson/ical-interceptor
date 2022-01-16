@@ -12,6 +12,8 @@ This contains an [OpenFaas](https://www.openfaas.com/) function to fetch and man
 
 Supply a `?url=<your ical calendar URL>` as url query parameter to the enpoint you exposed the function to and add some modifiers.
 
+Supply `&download` as url query parameter in order to make your browser download the result as a file.
+
 Thanks to the more than generous option to run the function on the [OpenFaas Community cluster](https://github.com/openfaas/community-cluster/tree/master/docs), the function is available at `https://mrsimpson.o6s.io/ical-interceptor`.
 
 ### Supported modifiers

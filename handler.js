@@ -30,7 +30,15 @@ module.exports = async (event, context) => {
         const result = await execute(query.url, operations)
 
         const headers = {
-            'Access-Control-Allow-Origin': 'https://ical.no-panic.org'
+            'Access-Control-Allow-Origin': 'https://ical.no-panic.org',
+            'Content-Type': 'text/plain'
+        }
+
+        if(query.download !== undefined) {
+            const components = query.url.split('/')
+            const inputFilename = components[components.length-1].split('.')[0]
+            headers['Content-Type'] = 'application/octet-stream'
+            headers['Content-Disposition'] = `attachment;filename="${inputFilename}-intercepted.ics"`
         }
 
         return context

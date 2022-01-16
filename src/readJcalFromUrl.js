@@ -11,6 +11,7 @@ async function readJcalFromUrl(url) {
         console.warn(url, err)
     }
     if (!jCal || Object.keys(jCal).length === 0) {
+        console.log('URL', url, 'jCal', JSON.stringify(jCal) )
         throw new Error('URL supplied does not yield a valid iCal calendar')
     }
 

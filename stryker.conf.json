@@ -1,0 +1,12 @@
+{
+  "testRunner": "mocha",
+  "coverageAnalysis": "perTest",
+  "mochaOptions": {
+    "spec": [ "test/**/*.js" ],
+    "config": ".mocharc.yaml",
+    "ui": "bdd",
+    "require": [ "babel-register" ],
+    "async-only": false,
+    "grep": ".*"
+  }
+}

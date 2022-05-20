@@ -45,4 +45,14 @@ describe('readIcsFromUrl', () => {
                 done()
             })
     })
+
+    it('should accept webcal:// as protocol and resolve it with https', async () => {
+        nock('https://source.ics')
+            .get('/validIcs')
+            .once()
+            .reply(200, getValidCalendar())
+        const ics = await readIcsFromUrl(`webcal://source.ics/validIcs`)
+
+        ics.should.not.be.empty()
+    })
 })

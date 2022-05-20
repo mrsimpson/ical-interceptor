@@ -39,11 +39,5 @@ jobs:
   
     steps:
     - uses: actions/checkout@v2
-    - name: Fix issue with repository ownership
-      run: |
-        git config --global --add safe.directory /github/workspace
-    - uses: LucasRoesler/openfaas-action/build@v0.1.0
+    - uses: mrsimpson/action-openfaas-build@0.3.0
       name: Build
-      with:
-        path: "stack.yml"
-        tag: "sha"
